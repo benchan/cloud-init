@@ -4,13 +4,15 @@ packages:
   - git
 
 runcmd:
- - [ curl, -O, https://downloads.rclone.org/rclone-current-linux-amd64.zip ]
- - [ unzip, rclone-current-linux-amd64.zip]
- - [ cp, rclone, /usr/bin/]
- - [ chmod, 755, /usr/bin/rclone]
- - [ mkdir, /mnt/blockstorage]
+ - [ mkdir, /mnt/blockstorage ]
  - [ mount, /dev/vdb1, /mnt/blockstorage ]
- 
+ - [ curl, -O, "https://downloads.rclone.org/rclone-current-linux-amd64.zip" ]
+ - [ unzip, rclone-current-linux-amd64.zip ]
+ - [ cp, rclone, /usr/bin/ ]
+ - [ chmod, 755, /usr/bin/rclone ]
+ - [ yum-config-manager, --add-repo, "https://download.docker.com/linux/centos/docker-ce.repo" ]
+ - [ yum, -y, install, docker-ce, docker-ce-cli, containerd.io, docker-buildx-plugin, docker-compose-plugin ]
+ - [ cp, /mnt/blockstorage/init/daemon.json, /etc/docker/ ]
  
 # ~/.config/rclone/rclone.conf
  
