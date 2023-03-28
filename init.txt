@@ -7,7 +7,7 @@ runcmd:
  - [ mkdir, /mnt/blockstorage ]
  - [ mount, /dev/vdb1, /mnt/blockstorage ]
  - [ mkdir, /run/ben ]
- - [ wget -P /run/ben "https://downloads.rclone.org/rclone-current-linux-amd64.zip" ]
+ - [ wget, -P, /run/ben, "https://downloads.rclone.org/rclone-current-linux-amd64.zip" ]
  - [ unzip, /run/ben/rclone-current-linux-amd64.zip ]
  - [ cp, /run/ben/rclone*/rclone, /usr/bin/ ]
  - [ chmod, 755, /usr/bin/rclone ]
